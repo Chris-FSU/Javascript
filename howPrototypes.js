@@ -1,8 +1,9 @@
+// Make a class called "actor" that can sit.
 function actor (name, species) {
 	this.name = name;
 	this.species = species;
 	this.seat = "";
-	if (species == 'human') {
+	if (species == 'human') {					// Humans have laps, which are also seats.
 		this.Priority = 1
 		this.lap = {}
 		this.lap.occupant = "standing";
@@ -12,27 +13,29 @@ function actor (name, species) {
 	}
 }
 
+// Make a seat class
 function seat(name) {
 	this.name = name;
 	this.occupant = "";
 }
 
+// What happens when you sit?
 actor.prototype.sit = function (seat) {
-	if (seat.occupant != ""){
-		if (this.Priority < seat.occupant.Priority) {
-		seat.occupant.getUp(seat)
-		} else {
-			message = seat.name + " is occupied.";
-			console.log(message);
+	if (seat.occupant != ""){							// If the seat is occupied,
+		if (this.Priority < seat.occupant.Priority) {	// and the actor has priority,
+		seat.occupant.getUp(seat)						// make the current occupant get up.
+		} else {										// Otherwise,
+			message = seat.name + " is occupied.";		// tell the new actor 
+			console.log(message);						// that it's occupied.
 		}
 	} 
-	if (seat.occupant == ""){
+	if (seat.occupant == ""){							// If no one is sitting here,
 		message = this.name + " sits on " + seat.name + ".";
 		console.log(message);
-		seat.occupant = this;
+		seat.occupant = this;							// let this actor sit here.
 		this.seat = seat;
-		if (this.species == 'human') {
-			this.lap.occupant = "";
+		if (this.species == 'human') {					// If this is a human sitting down,
+			this.lap.occupant = "";						// they now have a lap.
 		}
 	}
 }

@@ -21,15 +21,15 @@ nothing = null; // value null
 str = 'Here are some words and stuff.';
 strbrk = 'Here are some \nwords and stuff.';
 csv = 'eggs, bread, beer, milk, juice';
-console.log(str.length);
-console.log(str.indexOf('me'));
-console.log(str.slice(14,19));
-console.log(str.replace('some','a few'));
-console.log(str.toUpperCase());
-console.log(str.toLowerCase());
-console.log(str.charAt(19));
+console.log(str.length);						// How many characters?
+console.log(str.indexOf('me'));					// Where is 'me' in str?
+console.log(str.slice(14,19));					// What's between 14 and 19 in str?
+console.log(str.replace('some','a few'));		// Replace
+console.log(str.toUpperCase());					// All caps
+console.log(str.toLowerCase());					// No caps
+console.log(str.charAt(19));					// What's at 19?
 console.log(str[19]);
-grocery = csv.split(',');
+grocery = csv.split(',');						// Makes an Array form a comma-seperated list
 
 // Array common methods
 grocery[2];										// show item 2

@@ -1,5 +1,11 @@
-// Conditionals and Flow Control
+// Conditionals
 
+
+/* This is just to process input for the conditionals below.
+It will take a time like "2:30 pm", break it into 2, 30, and 
+pm, and process each part to output minutes since midnight 
+of that day.
+*/
 function processTime (){
 	time = prompt('Enter time in this format: "10:30 pm"');
 	time1 = time.split(' ');
@@ -15,6 +21,9 @@ function processTime (){
 	return minute;
 }
 
+/* This uses a mess of if, else if, and else to put 
+a name to the time of day that was entered above.
+*/
 function timeOfDay1 (minute) {
 	if (minute < 240) {
 		return 'the wee hours';
@@ -41,6 +50,9 @@ function timeOfDay1 (minute) {
 	}
 }
 
+/* This uses a case and switch to put a name 
+to the time of day that was entered above.
+*/
 function timeOfDay2 (minute) {
 	switch ((minute - (minute % 120))/120){
 		case 0:									// This is not an accident. It applies the same
@@ -79,3 +91,9 @@ function timeOfDay2 (minute) {
 		break;
 	}
 }
+
+/* Run these to see it all work together.
+Both should function identically.
+*/
+timeOfDay1(processTime());
+timeOfDay2(processTime());
