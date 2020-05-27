@@ -1,24 +1,31 @@
 .container-1{
-	border: 1px;
+	border: 0px;
 	border-style: solid;
 	border-color: black;
 	margin: 0 auto;
-	width: 50%;
+	width: 75%;
 	text-align: center;
 }
 
 .flex-box-container-1 {
 	display: flex;
-	border: 1px;
+	border: 0px;
 	border-style: solid;
 	border-color: black;
-	padding: 10px;
+	margin:10px;
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
 
 .flex-box-container-1 div {
 	display: flex;
-	padding:10px;
+	margin: 10 px;
 	align-items: center;
+}
+
+.flex-box-container-1 img {
+	border: 0px;
+	border-style: solid;
+	border-color: white;
+	box-shadow: 0px 10px 50px rgba(0,100,100,0.7);
 }
