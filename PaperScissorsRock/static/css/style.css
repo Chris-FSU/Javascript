@@ -1,0 +1,26 @@
+.flex-box-psr img:hover{
+	box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.7);
+}
+
+.flex-box-psr {
+	display: flex;
+	padding: 10px;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.container-1 {
+	width: 75%;
+	text-align: center;
+	margin:0 auto;
+}
+
+.flex-box-container-1 {
+	display: flex;
+	padding: 10px;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	text-align: center;
+}
