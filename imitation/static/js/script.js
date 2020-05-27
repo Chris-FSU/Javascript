@@ -55,8 +55,13 @@ function timeOfDay (minute) {
 		break;
 	}
 	var h1 = document.createElement('h1');
-	var textAnswer = "This time is at the " + result + ".";
+	var textAnswer = document.createTextNode("This time is the " + result + ".");
 	h1.setAttribute('id','result');
 	h1.appendChild(textAnswer);
 	document.getElementById('flex-box-result').appendChild(h1);
+
+}
+
+function clearResult () {
+	document.getElementById('result').remove();
 }
