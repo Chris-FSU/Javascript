@@ -1,5 +1,3 @@
-var fieldElements = 0;
-
 function psrGame (choice) {		//to run on click of a choice
 	clearAll();
 	humanChoice = Number(choice.id);	// 1: paper, 2: scissors, 3: rock
@@ -24,6 +22,7 @@ function psrGame (choice) {		//to run on click of a choice
 	};
 	h1 = document.createElement('h1');
 	h1.appendChild(announce);
+	h1.setAttribute('id','announcement');
 	document.getElementById('announce-winner-box').appendChild(h1);
 	switch (botChoice){
 		case 1:
@@ -47,7 +46,6 @@ function displayPaper () {
 	img.setAttribute('height','100');
 	img.setAttribute('id','result-image');
 	document.getElementById('results-box').appendChild(img);
-	fieldElements ++;
 }
 
 function displayScissors () {
@@ -59,7 +57,6 @@ function displayScissors () {
 	img.setAttribute('height','100');
 	img.setAttribute('id','result-image');
 	document.getElementById('results-box').appendChild(img);
-	fieldElements ++;
 }
 
 function displayRock () {
@@ -71,17 +68,18 @@ function displayRock () {
 	img.setAttribute('height','100');
 	img.setAttribute('id','result-image');
 	document.getElementById('results-box').appendChild(img);
-	fieldElements ++;
 }
 
 function clearOne () {
 	document.getElementById('result-image').remove();
-	fieldElements --;
 }
 
 function clearAll () {
-	while (fieldElements >0) {
-		document.getElementById('result-image').remove();
-		fieldElements --;
+	try {
+		while (typeof h1 !== "undefined") {
+			document.getElementById('result-image').remove();
+			document.getElementById('announcement').remove();
+		}
+	} catch (error) {
 	}
 }
