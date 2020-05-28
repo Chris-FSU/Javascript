@@ -4,23 +4,62 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible"content="ie=edge">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="static/style.css">
 	<title>Gardening Game</title>
 </head>
 <body>
 	<div class="container-1">
 		<h2>Gardening Game (Proof of Concept)</h2>
 		<div class="flex-box-1" id="flex-box-1">
-			<img id="1" src="static/images/Overgrown.png" height="150px" width="150px" alt="" onclick="psrGame(this)">
-			<img id="2" src="static/images/Overgrown.png" height="150px" width="150px" alt="" onclick="psrGame(this)">
-			<img id="3" src="static/images/Overgrown.png" height="150px" width="150px" alt="" onclick="psrGame(this)">
-			<img id="4" src="static/images/Overgrown.png" height="150px" width="150px" alt="" onclick="psrGame(this)">
+			<img id="1" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(1)">
+			<img id="2" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(2)">
+			<img id="3" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(3)">
+			<img id="4" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(4)">
+			<img id="5" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(5)">
+			<img id="6" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(6)">
+			<img id="7" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(7)">
+			<img id="8" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(8)">
+			<img id="9" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(9)">
+			<img id="10" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(10)">
+			<img id="11" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(11)">
+			<img id="12" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(12)">
+			<img id="13" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(13)">
+			<img id="14" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(14)">
+			<img id="15" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(15)">
+			<img id="16" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(16)">
+			<img id="17" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(17)">
+			<img id="18" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(18)">
+			<img id="19" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(19)">
+			<img id="20" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(20)">
+			<img id="21" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(21)">
+			<img id="22" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(22)">
+			<img id="23" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(23)">
+			<img id="24" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(24)">
+			<img id="25" src="static/images/Overgrown.png" height="100px" width="100px" alt="" onclick="action(25)">
 		</div>
-		<div class="flex-box-container-1" id="announce-winner-box">
+		<div class="flex-box-container-1" id="tool-box">
+					<div>
+				<button class="btn btn-primary" onclick="tillMode()">Till</button>
+			</div>
+			<div>
+				<button class="btn btn-primary" onclick="plantMode()">Plant</button>
+			</div>
+			<div>
+				<button class="btn btn-primary" onclick="pickMode()">Pick Weeds</button>
+			</div>
+			<div>
+				<button class="btn btn-primary" onclick="harvestMode()">Harvest</button>
+			</div>
+			<div>
+				<button class="btn btn-primary" onclick="waterMode()">Water</button>
+			</div>
+			<div>
+				<button class="btn btn-danger" onclick="newDay()">Sleep</button>
+			</div>
 		</div>
-		<div class="flex-box-1" id="results-box">
+		<div class="flex-box-1" id="message-box">
 		</div>
 	</div>
-	<script src="static/js/script.js"></script>
+	<script src="static/script.js"></script>
 </body>
 </html>
