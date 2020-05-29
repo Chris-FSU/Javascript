@@ -10,6 +10,14 @@
 	justify-content: center;
 }
 
+.flex-box-2 {
+	display: flex;
+	padding: 10px;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .container-1 {
 	width: 75%;
 	text-align: center;

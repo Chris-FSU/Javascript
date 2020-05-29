@@ -68,123 +68,60 @@ function modesOff() {
 
 // Start tilling
 function tillMode() {
-	modesOff(); 													// Turn off other modes
-	try {															// Clear last action message
-		document.getElementById('action-message').remove();
-		document.getElementById('overexertion-message').remove();
-		document.getElementById('endurance-message').remove();
-	} catch (error) {												// If there wasn't a last action message,
-	}																// I don't care. Just don't bother me about it.
-	message = document.createTextNode("You pulled out the tiller. ");
+	modesOff(); 													// Turn off other modes															// I don't care. Just don't bother me about it.
+	actionMessage("You pulled out the tiller. ");
 	tilling = true;													// Active till mode
-	h3 = document.createElement('h3');								// The next 4 lines post the message
-	h3.appendChild(message);
-	h3.setAttribute('id','action-message');
-	document.getElementById('message-box').appendChild(h3);
 }
 
 // Start planting
 function plantMode() {
 	modesOff();
-	try {
-		document.getElementById('action-message').remove();
-		document.getElementById('overexertion-message').remove();
-		document.getElementById('endurance-message').remove();
-	} catch (error) {
-	}
-	message = document.createTextNode("You pulled out the seeds and spade. ");
+	actionMessage("You pulled out the seeds and spade. ");
 	planting = true;
-	h3 = document.createElement('h3');
-	h3.appendChild(message);
-	h3.setAttribute('id','action-message');
-	document.getElementById('message-box').appendChild(h3);
 }
 
 // Start weeding
 function weedMode() {
 	modesOff();
-	try {
-		document.getElementById('action-message').remove();
-		document.getElementById('overexertion-message').remove();
-		document.getElementById('endurance-message').remove();
-	} catch (error) {
-	}
-	message = document.createTextNode("You're ready to pick weeds. ");
+	actionMessage("You're ready to pick weeds. ");
 	weeding = true;
-	h3 = document.createElement('h3');
-	h3.appendChild(message);
-	h3.setAttribute('id','action-message');
-	document.getElementById('message-box').appendChild(h3);
 }
 
 // Start harvesting
 function harvestMode() {
 	modesOff();
-	try {
-		document.getElementById('action-message').remove();
-		document.getElementById('overexertion-message').remove();
-		document.getElementById('endurance-message').remove();
-	} catch (error) {
-	}
-	message = document.createTextNode("You're ready to harvest. ");
+	actionMessage("You're ready to harvest. ");
 	harvesting = true;
-	h3 = document.createElement('h3');
-	h3.appendChild(message);
-	h3.setAttribute('id','action-message');
-	document.getElementById('message-box').appendChild(h3);
 }
 
 // Start watering
 function waterMode() {
 	modesOff();
-	try {
-		document.getElementById('action-message').remove();
-		document.getElementById('overexertion-message').remove();
-		document.getElementById('endurance-message').remove();
-	} catch (error) {
-	}
-	message = document.createTextNode("You pulled out the watering hose. ");
+	actionMessage("You pulled out the watering hose. ");
 	watering = true;
-	h3 = document.createElement('h3');
-	h3.appendChild(message);
-	h3.setAttribute('id','action-message');
-	document.getElementById('message-box').appendChild(h3);
 }
 
 // End Day
 function newDay(){
 	modesOff();
 	//Remove all previous-day messages
-	try {
-		document.getElementById('endurance-message').remove();
-		document.getElementById('action-message').remove();
-		document.getElementById('overexertion-message').remove();
-	} catch (error) { // Don't tell me there aren't any. I don't care.
-	}
-	message = document.createTextNode("You decide to call it a day. ");
-	h3 = document.createElement('h3');
-	h3.appendChild(message);
-	h3.setAttribute('id','action-message');
-	document.getElementById('message-box').appendChild(h3);
-	
+	actionMessage("You decide to call it a day. ");
 	// Overworked effects
+	try{ 	document.getElementById('overexertion-message').remove();
+	} catch{
+	}
 	if (overworked == 2) { // Injured the next day
-		message = document.createTextNode("You're injured and can't work today. ");
-		h3 = document.createElement('h3');
-		h3.appendChild(message);
-		h3.setAttribute('id','overexertion-message');
-		document.getElementById('message-box').appendChild(h3);
+		exertionMessage("You're injured and can't work today. ");
+		endurance = 0;
 		overworked --;
 	} else if (overworked == 1) { // Sore the next day
-		message = document.createTextNode("You're sore and can't work as hard today. ");
-		h3 = document.createElement('h3');
-		h3.appendChild(message);
-		h3.setAttribute('id','overexertion-message');
-		document.getElementById('message-box').appendChild(h3);
+		exertionMessage("You're sore and can't work as hard today. ");
 		endurance = maxEndurance/2;
 		overworked --;
 	} else if (endurance < maxEndurance * .6){ // Healthy the next day
 		maxEndurance ++;
+		endurance = maxEndurance;
+	} else {
 		endurance = maxEndurance;
 	}
 	// Increase 1 grass for every tile
@@ -220,73 +157,45 @@ function newDay(){
 		}
 	}
 	dayNumber ++;
+	updateEndurance();
 }
 
 // Process button click
 function action(tileID) {
-	try {
-		document.getElementById('action-message').remove();
-		document.getElementById('endurance-message').remove();
-		document.getElementById('action-message').remove();
-		document.getElementById('endurance-message').remove();
-	} catch (error) {
-	}
 	if (endurance == 0) {
-		h3 = document.createElement('h3');
-		h3.appendChild(document.createTextNode('You have collapsed from exhaustion! '));
-		h3.setAttribute('id','endurance-message');
-		document.getElementById('message-box').appendChild(h3);
+		actionMessage('You have collapsed from exhaustion! ');
 		overworked = 2;
 	} else {
 		if (tilling) {
 			document.getElementById(String(tileID)).src = 'static/images/soil.jpg';
 			map[tileID-1].grass = 0;
 			endurance -= 1;
-			h3 = document.createElement('h3');
-			h3.appendChild(document.createTextNode('You have tilled a plot. '));
-			h3.setAttribute('id','action-message');
-			document.getElementById('message-box').appendChild(h3);
-			h3 = document.createElement('h3');
-			h3.appendChild(describeEndurance());
-			h3.setAttribute('id','endurance-message');
-			document.getElementById('message-box').appendChild(h3);
+			actionMessage('You have tilled a plot. ');
+			//enduranceMessage(describeEndurance());
 		}
 		if (planting) {
-			if (map[tileID-1].grass < 2){
+			if (map[tileID-1].grass <= 2){
 			document.getElementById(String(tileID)).src = 'static/images/seedling.png';
 			map[tileID-1].plant = 1;
 			endurance -= 1;
-			h3 = document.createElement('h3');
-			h3.appendChild(document.createTextNode('You have planted a new seed. '));
-			h3.setAttribute('id','action-message');
-			document.getElementById('message-box').appendChild(h3);
-			h3 = document.createElement('h3');
-			h3.appendChild(describeEndurance());
-			h3.setAttribute('id','endurance-message');
-			document.getElementById('message-box').appendChild(h3);
+			actionMessage('You have planted a new seed. ');
+			//enduranceMessage(describeEndurance());
 			} else {
-			h3 = document.createElement('h3');
-			h3.appendChild(document.createTextNode('You must till before you can plant here. '));
-			h3.setAttribute('id','action-message');
-			document.getElementById('message-box').appendChild(h3);
+			actionMessage('You must till before you can plant here. ');
 			}
 		}
 		if (watering) {
 		}
 		if (harvesting) {
 			if (map[tileID-1].plant > 6) {
-				h3 = document.createElement('h3');
-				h3.appendChild(document.createTextNode('This corn is no good. It\'s rotten. '));
-				h3.setAttribute('id','action-message');
-				document.getElementById('message-box').appendChild(h3);
+				actionMessage('This corn is no good. It\'s rotten. ');
 			} else if (map[tileID-1].plant > 4) {
 				corn ++;
 				endurance -= 1;
 				map[tileID-1].plant = 0;
-				h3 = document.createElement('h3');
-				h3.appendChild(document.createTextNode('You have harvested corn! '));
-				h3.setAttribute('id','action-message');
-				document.getElementById('message-box').appendChild(h3);
+				actionMessage('You have harvested corn! ');
+				//enduranceMessage(describeEndurance());
+				cornCount();
 				if (map[tileID-1].grass > 2) {
 					document.getElementById(map[tileID-1].id).src = 'static/images/lowGrass.jpg';
 				} else {
@@ -294,21 +203,17 @@ function action(tileID) {
 				}
 			
 			} else {
-			h3 = document.createElement('h3');
-			h3.appendChild(document.createTextNode('This isn\'t ready to be harvested yet! '));
-			h3.setAttribute('id','action-message');
-			document.getElementById('message-box').appendChild(h3);
+			actionMessage('This isn\'t ready to be harvested yet! ');
 			}
 		}
 		if (weeding) {
 			if (map[tileID-1].grass > 4){
-			h3 = document.createElement('h3');
-			h3.appendChild(document.createTextNode('This is too overgrown! You must till here. '));
-			h3.setAttribute('id','action-message');
-			document.getElementById('message-box').appendChild(h3);
+			actionMessage('This is too overgrown! You must till here. ');
 			} else if (map[tileID-1].grass > 2){
 			map[tileID-1].grass = 0;
 			endurance -= 1;
+			actionMessage('You have pulled the weeds! ');
+			//enduranceMessage(describeEndurance());
 			if (map[tileID-1].plant > 6) { // rot
 				document.getElementById(String(tileID)).src = 'static/images/rot.jpg';
 			} else if (map[tileID-1].plant > 4) { //yielding
@@ -321,16 +226,19 @@ function action(tileID) {
 				document.getElementById(String(tileID)).src = 'static/images/soil.jpg';
 			}
 			} else {
-			h3 = document.createElement('h3');
-			h3.appendChild(document.createTextNode('There are no weeds to pick here. '));
-			h3.setAttribute('id','action-message');
-			document.getElementById('message-box').appendChild(h3);
+			actionMessage('There are no weeds to pick here. ');
 			}
+		}
+	}
+	updateEndurance();
+	if (endurance < 4){
+		if (overworked <2){
+			overworked ++;
 		}
 	}
 }
 
-function describeEndurance() {
+/*function describeEndurance() {
 	switch (Math.ceil((endurance/maxEndurance)*5)){
 		case 5:
 			state = 'very energetic! ';
@@ -346,11 +254,62 @@ function describeEndurance() {
 		break;
 		case 1:
 			state = 'completely wiped! ';
-			if (overworked <2){
-			overworked ++;
-			}
+			
 		break;
 	}
-	message = document.createTextNode('You feel ' + state);
+	message = 'You feel ' + state;
 	return message;
+} */
+
+function updateEndurance() {
+	try{ 	document.getElementById('energy-meter').remove();
+	} catch{
+	}
+	message = "\n Energy: " + String(endurance);
+	h3 = document.createElement('h3');
+	h3.appendChild(document.createTextNode(message));
+	h3.setAttribute('id','energy-meter');
+	document.getElementById('meter-box').appendChild(h3);
+	
+}
+
+function cornCount () {
+	try{ 	document.getElementById('corn-count').remove();
+	} catch{
+	}
+	message = "Corn Harvested: " + String(corn);
+	h3 = document.createElement('h3');
+	h3.appendChild(document.createTextNode(message));
+	h3.setAttribute('id','corn-count');
+	document.getElementById('meter-box').appendChild(h3);
+}
+
+function actionMessage (message) {
+	try{ 	document.getElementById('action-message').remove();
+	} catch{
+	}
+	h3 = document.createElement('h3');
+	h3.appendChild(document.createTextNode(message));
+	h3.setAttribute('id','action-message');
+	document.getElementById('message-box').appendChild(h3);
+}
+
+/* function enduranceMessage (message) {
+	try{ 	document.getElementById('endurance-message').remove();
+	} catch{
+	}
+	h3 = document.createElement('h3');
+	h3.appendChild(document.createTextNode(message));
+	h3.setAttribute('id','endurance-message');
+	document.getElementById('message-box').appendChild(h3);
+} */
+
+function exertionMessage (message) {
+	try{ 	document.getElementById('overexertion-message').remove();
+	} catch{
+	}
+	h3 = document.createElement('h3');
+	h3.appendChild(document.createTextNode(message));
+	h3.setAttribute('id','overexertion-message');
+	document.getElementById('message-box').appendChild(h3);
 }
