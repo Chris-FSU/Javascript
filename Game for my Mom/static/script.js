@@ -50,12 +50,35 @@ tile22 = new tile(22)
 tile23 = new tile(23)
 tile24 = new tile(24)
 tile25 = new tile(25)
+tile26 = new tile(26)
+tile27 = new tile(27)
+tile28 = new tile(28)
+tile29 = new tile(29)
+tile30 = new tile(30)
+tile31 = new tile(31)
+tile32 = new tile(32)
+tile33 = new tile(33)
+tile34 = new tile(34)
+tile35 = new tile(35)
+tile36 = new tile(36)
+tile37 = new tile(37)
+tile38 = new tile(38)
+tile39 = new tile(39)
+tile40 = new tile(40)
+tile41 = new tile(41)
+tile42 = new tile(42)
+tile43 = new tile(43)
+tile44 = new tile(44)
 
 map = [tile1,tile2,tile3,tile4,tile5,
 	tile6,tile7,tile8,tile9,tile10,
 	tile11,tile12,tile13,tile14,tile15,
 	tile16,tile17,tile18,tile19,tile20,
-	tile21,tile22,tile23,tile24,tile25]
+	tile21,tile22,tile23,tile24,tile25,
+	tile26,tile27,tile28,tile29,tile30,
+	tile31,tile32,tile33,tile34,tile35,
+	tile36,tile37,tile38,tile39,tile40,
+	tile41,tile42,tile43,tile44]
 
 // Turn off all modes before switching to another
 function modesOff() {
