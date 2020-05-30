@@ -197,14 +197,16 @@ function action(tileID) {
 			//enduranceMessage(describeEndurance());
 		}
 		if (planting) {
-			if (map[tileID-1].grass <= 2){
+			if (map[tileID-1].grass <= 2 && map[tileID-1].plant ==0){
 			document.getElementById(String(tileID)).src = 'static/images/seedling.png';
 			map[tileID-1].plant = 1;
 			endurance -= 1;
 			actionMessage('You have planted a new seed. ');
 			//enduranceMessage(describeEndurance());
+			} else if (map[tileID-1] != 0){
+				actionMessage('Something's already planted here! ');
 			} else {
-			actionMessage('You must till before you can plant here. ');
+			 actionMessage('You must till before you can plant here. ');
 			}
 		}
 		if (watering) {
