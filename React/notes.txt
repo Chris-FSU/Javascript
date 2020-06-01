@@ -1,0 +1,7 @@
+Great starting point:
+https://www.taniarascia.com/introduction-to-the-dom/
+
+If you use the inspect window to change properties through javascript,
+the changes are reflected in the element tab and in the website display
+but not in the source. The element tab is displaying the Document Object
+Model (DOM).
