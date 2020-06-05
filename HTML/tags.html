@@ -1,13 +1,125 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
-<header>
-</header>
-<main>
-</main>
-<footer>
-</footer>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Google will search this to try to figure out what the page is about">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- What to do if not computer-->
+	<!-- I got the next two lines from .../Basic Web Design/Game For Mom/index.html-->
+	<!-- link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" -->
+	<link rel="stylesheet" href="style.css"> <!-- This links the HTML to the css-->
+	</head>
+	<body>
+		<header>
+			What's in your head?
+			<nav>
+			 <a href="https://www.google.com">Google's Homepage</a>
+			</nav>
+		</header>
+		<main>
+			The main event
+			<article>
+				<section>
+					<img src="IMG_20161.jpg" alt="The MayDay logo" height="100px" width="100px"><br>
+					<a href="https://www.w3schools.com/tags/tag_img.asp">A link to other img information</a><br><br>
+				<aside>
+				</aside>
+				</section>
+			</article>
+			<article>
+				<section>
+					<video src="20200601_142714.mp4" poster="20200601_143733.jpg" controls width="560px"></video>
+				</section>
+				<section>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/pQN-pnXPaVg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</section>
+			</article>	
+			<article>
+			<h3>Lists</h3>
+				<ul>
+					<li>An item</li>
+					<li>Another item</li>
+					<li>Yet another item</li>
+				</ul>
+				<ol type="1">
+						<li>The first item</li>
+						<ol type="a">
+							<li>The first item</li>
+							<li>The second item</li>
+							<ol type="i">
+								<li>The first item</li>
+								<li>The second item</li>
+								<li>The third item</li>
+							</ol>
+							<li>The third item</li>
+						</ol>
+						<li>The second item</li>
+						<li>The third item</li>
+				</ol>
+				<dl>
+					<dt>Apples</dt>
+						<dd>- Red, Green, or Yellow; thin skin</dt>
+					<dt>Oranges</dt>
+						<dd>- Orange, thick, non-yummy skin</dt>
+				</dl>
+			</article>
+			<article>
+				<h3>Tables</h3>
+					<table>
+						<thead>
+						<caption>Family</caption>
+						<tr>
+							<th>Chris</th>
+							<th>Christa</th>
+							<th>Chairman Mao</th>
+							<th>Freya</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td colspan="2" align="center">Human</td>
+							<td colspan="2" align="center">Kitty</td>
+						</tr>
+						<tr>
+							<td>Male</td>
+							<td>Female</td>
+							<td>Male</td>
+							<td>Female</td>
+						</tr>
+						</tbody>
+					</table>
+			</article>
+			<article>
+				<h3>Divs and Spans</h3>
+					<span>Span 1</span>
+					<span>Span 2 on the same line</span>
+					<div>Div 1</div>
+					<div> Div 2 on a different line</div>
+			</article>
+			<article>
+			<section>
+				<input type="text" value="Text to display when empty"/><br>
+				<input type="password" /><br>
+				<input type="date" /><br>
+				<input type="range" /><br>
+				<input type="button" /><br>
+				<input type="checkbox" /><br>
+				<input name="rdo-btn" type="radio" /><br>
+				<input name="rdo-btn" type="radio" /><br>
+				<textarea rows="10" columns="20"></textarea><br>
+				<a href="https://www.w3schools.com/TagS/att_input_type.asp"> More about inputs </a>
+				</section>
+				<section>
+					<form>
+						<input type="submit">
+					</form>
+				</section>
+			</article>
+			<article>
+				<iframe src="http://www.google.com" width="500" height="800"></iframe>
+			</article>
+		</main>
+		<footer>
+			The footer
+		</footer>
+	</body>
 </html>

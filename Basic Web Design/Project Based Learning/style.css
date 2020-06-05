@@ -1,0 +1,42 @@
+/* Master Styles */
+body {
+	margin: 0px;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+/* Nav Styles */
+.nav-wrap{
+	display: flex;
+	justify-content:space-between;
+	padding:  38px;
+}
+
+.left-side {
+	display: flex;
+}
+
+.nav-link-wrap {
+	height: 22px;
+	border-bottom: 1px solid transparent;
+	transition: border-bottom 0.5s;
+}
+
+.nav-link-wrap a {
+	color:#8a8a8a;
+	text-decoration: none;
+	transition: color 0.5s;
+}
+
+.nav-wrap-link:hover {
+	border-bottom: 1px solid black;
+}
+
+.nav-wrap-link a:hover {
+	color: black;
+}
+
+/* Portfolio Styles */
